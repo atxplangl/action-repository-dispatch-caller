@@ -7,7 +7,7 @@ import requests
 import json
 import os
 
-def main:
+def main():
     org_name = os.environ["ORG_NAME"]
     repo_name = os.environ["REPO_NAME"]
     github_token = os.environ["GITHUB_TOKEN"]
