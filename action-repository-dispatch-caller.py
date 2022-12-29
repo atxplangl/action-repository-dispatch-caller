@@ -14,7 +14,7 @@ def main():
     event = os.environ["EVENT"]
     client_payload_data = os.environ["CLIENT_PAYLOAD"]
 
-    url = "https://api.github.com/repos/" + org_name "/" + repo_name "/dispatches"
+    url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
 
     payload = {"event_type": event, "client_payload": client_payload_data}
 
