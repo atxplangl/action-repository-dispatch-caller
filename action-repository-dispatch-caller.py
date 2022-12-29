@@ -24,11 +24,9 @@ def main():
         }
     }
 
-    payload = json.dumps(payload)
-
     headers = {
       "Accept": "application/vnd.github.v3+json",
-      "Authorization": f"token {github_token}",
+      "Authorization": f"token {github_token}" ,
     }
 
     response = requests.post(url=url, json=payload, headers=headers)
