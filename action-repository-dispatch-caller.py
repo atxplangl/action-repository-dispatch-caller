@@ -18,7 +18,7 @@ def main():
 
     payload = {"event_type": event, "client_payload": client_payload_data}
 
-    header = {"Accept": "application/vnd.github+json", "Authorization": "token " + github_token}
+    header = {"Accept": "application/vnd.github.v3+json", "Authorization": "token " + github_token}
     payload = json.dumps(payload)
     response = requests.post(url=url, headers=header, json=payload)
 
