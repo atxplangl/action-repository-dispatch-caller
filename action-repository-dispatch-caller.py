@@ -12,6 +12,8 @@ def main():
     repo_name = os.environ.get("REPO_NAME")
     github_token = os.environ.get("GITHUB_TOKEN")
     event = os.environ.get("EVENT")
+    github_ref = os.environ.get("GITHUB_REF")
+    github_sha = os.environ.get("GITHUB_SHA")
     version = os.environ.get("VERSION")
 
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
@@ -20,7 +22,9 @@ def main():
     payload = {
         "event_type": event,
         "client_payload": {
-        "version": version
+            "version": version,
+            "ref": github_ref,
+            "sha": github_sha,
         }
     }
 
