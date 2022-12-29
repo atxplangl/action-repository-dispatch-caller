@@ -16,12 +16,13 @@ def main():
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
     print(url)
 
-    payload = "{
-        \"event_type\": \"%(event)s\",
-        \"client_payload\": {
-            \"version\": \"%(version)s\"
+    data = {
+        'event_type': event,
+        'client_payload': {
+        'version': version
         }
-    }"%dict(event=event,version=version)
+    }
+
     print(payload)
 
     headers = {
@@ -29,7 +30,7 @@ def main():
       "Authorization": f"token {github_token}",
     }
 
-    response = requests.post(url=url, data=payload, headers=headers)
+    response = requests.post(url=url, json={'json_payload': data}, headers=headers)
     print(response)
 main()
 
