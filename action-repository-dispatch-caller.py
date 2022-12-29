@@ -17,9 +17,9 @@ def main():
     print(url)
 
     data = {
-        'event_type': event,
-        'client_payload': {
-        'version': version
+        "event_type": event,
+        "client_payload": {
+        "version": version
         }
     }
 
