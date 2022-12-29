@@ -17,7 +17,7 @@ def main():
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
     print(url)
     data = {
-      "event_type": EVENT,
+      "event_type": event,
       "client_payload": client_payload_data
     }
     print(data)
