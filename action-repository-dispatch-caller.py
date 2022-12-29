@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# usage: python action.py
-# action.py action repository dispatch caller
+# usage: python action-repository-dispatch-caller.py
+# action-repository-dispatch-caller.py action repository dispatch caller
 ###############################################################################
 
 import requests
@@ -12,12 +12,11 @@ def main:
     repo_name = os.environ["REPO_NAME"]
     github_token = os.environ["GITHUB_TOKEN"]
     event = os.environ{"EVENT"}
-    github_ref = os.environ{"GITHUB_REF"}
-    github_sha = os.environ{"GITHUB_SHA"}
+    client_payload_data = os.environ{"CLIENT_PAYLOAD"}
 
     url = "https://api.github.com/repos/" + org_name "/" + repo_name "/dispatches"
 
-    payload = {"event_type": event, "client_payload": {"ref": github_ref, "sha": github_sha}}
+    payload = {"event_type": event, "client_payload": client_payload_data}
 
     header = {"Accept": "application/vnd.github+json", "Authorization": "token " github_token}
     payload = json.dumps(payload)

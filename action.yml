@@ -1,11 +1,6 @@
 name: repository-dispatch-caller
 description: https://github.com/champ-oss/action-repository-dispatch-caller
 
-  GITHUB_TOKEN=${1?github token is required}
-  EVENT=${2?event is required}
-  ORG_NAME=${3?org name is required}
-  REPO_NAME=${4?repo name is required}
-
 inputs:
   GITHUB_TOKEN:
     description: 'github token used to run action'
@@ -19,12 +14,9 @@ inputs:
   REPO_NAME:
     description: 'repo name'
     required: true
-  GITHUB_REF:
-    description: 'github ref'
-    required: true
-  GITHUB_SHA:
-    description: 'github sha'
-    required: true
+  CLIENT_PAYLOAD:
+    description: 'client payload data'
+    required: false
 runs:
   using: "composite"
   steps:
@@ -35,7 +27,6 @@ runs:
         EVENT: ${{ inputs.EVENT }}
         ORG_NAME: ${{ inputs.ORG_NAME }}
         REPO_NAME: ${{ inputs.REPO_NAME }}
-        GITHUB_REF: ${{ inputs.GITHUB_REF }}
-        GITHUB_SHA: ${{ inputs.GITHUB_SHA }}
+        CLIENT_PAYLOAD: ${{ inputs.CLIENT_PAYLOAD }}
       run: |
         python ${GITHUB_ACTION_PATH}/action-repository-dispatch-caller.py
