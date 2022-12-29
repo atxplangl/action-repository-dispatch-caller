@@ -11,8 +11,8 @@ def main():
     org_name = os.environ["ORG_NAME"]
     repo_name = os.environ["REPO_NAME"]
     github_token = os.environ["GITHUB_TOKEN"]
-    event = os.environ{"EVENT"}
-    client_payload_data = os.environ{"CLIENT_PAYLOAD"}
+    event = os.environ["EVENT"]
+    client_payload_data = os.environ["CLIENT_PAYLOAD"]
 
     url = "https://api.github.com/repos/" + org_name "/" + repo_name "/dispatches"
 
