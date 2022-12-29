@@ -15,12 +15,13 @@ def main():
 
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
     print(url)
-    data = "{
-      "event_type": event,
-      "client_payload": {
-          "version": version
-      }
-    }"
+
+    data = {
+        "event_type": "build",
+        "client_payload": {
+            "version": version
+        }
+    }
     print(data)
 
     headers = {
