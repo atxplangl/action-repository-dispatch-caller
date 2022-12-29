@@ -16,20 +16,20 @@ def main():
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
     print(url)
 
-    data = "{
-        \"event_type\": \"%(event)\",
+    payload = "{
+        \"event_type\": \"%(event)s\",
         \"client_payload\": {
-            \"version\": \"%(version)\"
+            \"version\": \"%(version)s\"
         }
     }"%dict(event=event,version=version)
-    print(data)
+    print(payload)
 
     headers = {
       "Accept": "application/vnd.github.v3+json",
       "Authorization": f"token {github_token}",
     }
 
-    response = requests.post(url=url, data=data, headers=headers)
+    response = requests.post(url=url, data=payload, headers=headers)
     print(response)
 main()
 
