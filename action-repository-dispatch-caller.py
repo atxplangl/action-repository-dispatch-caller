@@ -12,13 +12,15 @@ def main():
     repo_name = os.environ.get("REPO_NAME")
     github_token = os.environ.get("GITHUB_TOKEN")
     event = os.environ.get("EVENT")
-    client_payload_data = os.environ.get("CLIENT_PAYLOAD")
+    version = os.environ.get("VERSION")
 
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
     print(url)
     data = {
       "event_type": event,
-      "client_payload": client_payload_data
+      "client_payload": {
+          "version": version
+      }
     }
     print(data)
 

@@ -14,7 +14,7 @@ inputs:
   REPO_NAME:
     description: 'repo name'
     required: true
-  CLIENT_PAYLOAD:
+  VERSION:
     description: 'client payload data'
     required: false
 runs:
@@ -27,6 +27,6 @@ runs:
         EVENT: ${{ inputs.EVENT }}
         ORG_NAME: ${{ inputs.ORG_NAME }}
         REPO_NAME: ${{ inputs.REPO_NAME }}
-        CLIENT_PAYLOAD: ${{ inputs.CLIENT_PAYLOAD }}
+        VERSION: ${{ inputs.VERSION }}
       run: |
         python ${GITHUB_ACTION_PATH}/action-repository-dispatch-caller.py
