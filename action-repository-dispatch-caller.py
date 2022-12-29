@@ -23,7 +23,7 @@ def main():
         }
     }
 
-    print(payload)
+    print(data)
 
     headers = {
       "Accept": "application/vnd.github.v3+json",
