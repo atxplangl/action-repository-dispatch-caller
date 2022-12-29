@@ -15,12 +15,12 @@ def main():
     client_payload_data = os.environ["CLIENT_PAYLOAD"]
 
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
-
+    print(url)
     payload = {"event_type": event, "client_payload": client_payload_data}
 
     header = {"Accept": "application/vnd.github.v3+json", "Authorization": "token " + github_token}
     payload = json.dumps(payload)
     response = requests.post(url=url, headers=header, json=payload)
-
+    print(response)
 main()
 
