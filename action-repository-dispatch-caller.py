@@ -4,7 +4,6 @@
 ###############################################################################
 
 import requests
-import json
 import os
 
 def main():
@@ -16,12 +15,12 @@ def main():
 
     url = "https://api.github.com/repos/" + org_name + "/" + repo_name + "/dispatches"
     print(url)
-    data = '{
+    data = "{
       "event_type": event,
       "client_payload": {
           "version": version
       }
-    }'
+    }"
     print(data)
 
     headers = {
